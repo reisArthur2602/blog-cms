@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { NextIntlClientProvider } from "next-intl";
 import "./globals.css";
 import { getMessages } from "next-intl/server";
+import { ANTDProvider } from "../../providers/antd";
 
 export const metadata: Metadata = {
   title: { template: "%s | Blog", default: "Home | Blog" },
@@ -19,7 +20,7 @@ export default async function RootLayout({
     <html lang={locale}>
       <body className={`antialiased`}>
         <NextIntlClientProvider messages={messages}>
-          {children}
+          <ANTDProvider>{children}</ANTDProvider>
         </NextIntlClientProvider>
       </body>
     </html>
